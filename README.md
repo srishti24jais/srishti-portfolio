@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Srishti Jaiswal - Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js 15, TailwindCSS 4, and Framer Motion.
 
-First, run the development server:
+## 🚀 Features
 
+- **Modern Design**: Clean, professional layout with blue/purple accent colors
+- **Responsive**: Fully responsive design that works on all devices
+- **Smooth Animations**: Framer Motion animations on scroll and hover
+- **Interactive Navigation**: Sticky navbar with smooth scroll to sections
+- **Contact Form**: Functional contact form with validation
+- **SEO Optimized**: Proper metadata and Open Graph tags
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: TailwindCSS 4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **TypeScript**: Full type safety
+- **Deployment**: Vercel ready
+
+## 📋 Sections
+
+1. **Hero Section** - Introduction with call-to-action buttons
+2. **About** - Bio and social media links
+3. **Experience** - Professional experience and internships
+4. **Projects** - Featured projects with GitHub and demo links
+5. **Skills** - Categorized technical skills
+6. **Certifications** - Professional certifications
+7. **Contact** - Contact form and information
+8. **Footer** - Social links and copyright
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd srishti-portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Personal Information
+Update the following in `src/app/page.tsx`:
+- Name and title in Hero section
+- Bio in About section
+- Experience details
+- Project information
+- Skills and technologies
+- Contact information
 
-## Deploy on Vercel
+### Styling
+- Colors can be customized in the TailwindCSS classes
+- Animations can be adjusted in the Framer Motion components
+- Layout can be modified in the component structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Content
+- Add more projects in the Projects section
+- Update experience details
+- Add more skills or certifications
+- Modify the contact form functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Responsive Design
+
+The website is fully responsive and includes:
+- Mobile-first design approach
+- Hamburger menu for mobile navigation
+- Responsive grid layouts
+- Optimized typography for all screen sizes
+
+## 🚀 Deployment
+
+The website is optimized for Vercel deployment:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with zero configuration
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+## 📞 Contact
+
+Srishti Jaiswal - [srishtijaiswal3016@gmail.com](mailto:srishtijaiswal3016@gmail.com)
+
+Project Link: [https://github.com/srishti24jais/srishti-portfolio](https://github.com/srishti24jais/srishti-portfolio)
+
+---
+
+⭐ Star this repository if you found it helpful!
