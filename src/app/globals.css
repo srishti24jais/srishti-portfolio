@@ -23,6 +23,78 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Tech-inspired animated background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  z-index: -1;
+  animation: backgroundShift 25s ease-in-out infinite;
+}
+
+/* Tech grid and particles background */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Tech grid pattern */
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    /* Floating tech particles */
+    radial-gradient(1px 1px at 20px 30px, rgba(0, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(0, 150, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(138, 43, 226, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(0, 255, 127, 0.3), transparent),
+    radial-gradient(1px 1px at 160px 30px, rgba(255, 69, 0, 0.3), transparent),
+    radial-gradient(1px 1px at 200px 60px, rgba(255, 215, 0, 0.3), transparent);
+  background-size: 50px 50px, 50px 50px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px, 300px 300px;
+  z-index: -1;
+  animation: techParticleFloat 20s linear infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(-15px) translateY(-8px) scale(1.02);
+  }
+  50% {
+    transform: translateX(8px) translateY(-15px) scale(0.98);
+  }
+  75% {
+    transform: translateX(-8px) translateY(8px) scale(1.01);
+  }
+}
+
+@keyframes techParticleFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) translateX(60px) rotate(180deg);
+    opacity: 0.2;
+  }
 }
 
 /* Smooth scrolling */
@@ -46,4 +118,67 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Tech-themed section backgrounds */
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+}
+
+.bg-gradient-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 150, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(0, 255, 255, 0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 150, 255, 0.02) 25%, transparent 25%);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  pointer-events: none;
+}
+
+.bg-tech-dark {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+  position: relative;
+}
+
+.bg-tech-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(0, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.bg-tech-pattern {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  position: relative;
+}
+
+.bg-tech-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(0, 255, 255, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 150, 255, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(138, 43, 226, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 255, 127, 0.03) 75%);
+  background-size: 25px 25px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  pointer-events: none;
 }
