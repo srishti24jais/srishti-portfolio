@@ -1,5 +1,7 @@
 "use client";
 
+// Portfolio website with enhanced aesthetic background
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -439,7 +441,9 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-black/20 backdrop-blur-sm"
+        scrolled 
+          ? "bg-slate-900/95 backdrop-blur-md shadow-xl border-b border-slate-700/50" 
+          : "bg-transparent backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -561,6 +565,88 @@ const Navbar = () => {
   );
 };
 
+// Enhanced Hero Background Component
+const HeroBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Enhanced gradient base */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-800"></div>
+      
+      {/* Animated gradient orbs for hero */}
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          x: [0, 50, 0],
+          y: [0, -30, 0]
+        }}
+        transition={{ duration: 20, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"
+        animate={{ 
+          scale: [1, 1.3, 1],
+          x: [0, -40, 0],
+          y: [0, 40, 0]
+        }}
+        transition={{ duration: 25, repeat: Infinity, delay: 5 }}
+      />
+      
+      {/* Floating geometric shapes */}
+      <motion.div 
+        className="absolute top-20 left-20 w-4 h-4 bg-blue-400/20 rounded-full"
+        animate={{ 
+          y: [0, -20, 0],
+          opacity: [0.3, 0.8, 0.3]
+        }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute top-40 right-32 w-3 h-3 bg-purple-400/20 rounded-full"
+        animate={{ 
+          y: [0, 15, 0],
+          opacity: [0.2, 0.6, 0.2]
+        }}
+        transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+      />
+      <motion.div 
+        className="absolute bottom-32 left-1/3 w-2 h-2 bg-cyan-400/20 rounded-full"
+        animate={{ 
+          y: [0, -25, 0],
+          opacity: [0.4, 0.7, 0.4]
+        }}
+        transition={{ duration: 7, repeat: Infinity, delay: 4 }}
+      />
+      
+      {/* Subtle animated grid */}
+      <motion.div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(148, 163, 184, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(148, 163, 184, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '60px 60px']
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+      />
+      
+      {/* Minimal corner accents */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-slate-700/5 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-slate-600/5 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-slate-600/5 to-transparent"></div>
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-slate-700/5 to-transparent"></div>
+    </div>
+  );
+};
+
 // Aesthetic Technical Background Component
 const AestheticBackground = () => {
   return (
@@ -660,7 +746,7 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <AestheticBackground />
+      <HeroBackground />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -715,25 +801,39 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4"
           >
             <motion.button
               onClick={() => scrollToSection("#projects")}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl w-full sm:w-auto"
+              className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl hover:shadow-blue-500/25"
             >
-              View Projects
-              <ChevronRight size={18} className="sm:w-5 sm:h-5" />
+              <span>View My Projects</span>
+              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </motion.button>
+            
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
+              className="group border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl backdrop-blur-sm"
             >
-              Contact Me
+              <span>Get In Touch</span>
+              <Mail size={20} className="group-hover:scale-110 transition-transform" />
             </motion.button>
+            
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group border-2 border-slate-400/30 text-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-slate-400/10 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg backdrop-blur-sm"
+            >
+              <Download size={18} className="group-hover:scale-110 transition-transform" />
+              <span>Download Resume</span>
+            </motion.a>
           </motion.div>
           
           {/* Scroll Down Indicator */}
@@ -1079,7 +1179,7 @@ const ProjectsSection = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-slate-800/40 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 border border-slate-700/30 cursor-pointer hover:border-slate-500/50 hover:bg-slate-800/50"
+              className="group bg-slate-800/40 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 border border-slate-700/30 cursor-pointer hover:border-slate-500/50 hover:bg-slate-800/50 hover:-translate-y-2"
               onClick={() => openPopup(index)}
             >
               <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
@@ -1088,45 +1188,45 @@ const ProjectsSection = () => {
                 {project.technologies.slice(0, 4).map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium border border-purple-500/30"
+                    className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300 px-3 py-1.5 rounded-full text-sm font-medium border border-purple-500/30 hover:border-purple-400/50 transition-colors"
                   >
                     {tech}
                   </span>
                 ))}
                 {project.technologies.length > 4 && (
-                  <span className="bg-gray-600/50 text-gray-300 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-slate-600/50 text-slate-300 px-3 py-1.5 rounded-full text-sm font-medium border border-slate-500/30">
                     +{project.technologies.length - 4} more
                   </span>
                 )}
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-300 hover:text-white transition-colors"
+                    className="group flex items-center text-slate-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-slate-700/50"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Github size={20} className="mr-2" />
-                    Code
+                    <Github size={18} className="mr-2 group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium">Code</span>
                   </a>
                   {project.demo !== "#" && (
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+                      className="group flex items-center text-blue-400 hover:text-blue-300 transition-colors px-3 py-2 rounded-lg hover:bg-blue-500/10"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <ExternalLink size={20} className="mr-2" />
-                      Demo
+                      <ExternalLink size={18} className="mr-2 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium">Demo</span>
                     </a>
                   )}
                 </div>
-                <div className="flex items-center gap-2 text-gray-400 text-sm">
-                  <span>Click for details</span>
-                  <ChevronRight size={16} />
+                <div className="flex items-center gap-2 text-slate-500 text-sm group-hover:text-slate-400 transition-colors">
+                  <span>View Details</span>
+                  <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </motion.div>
