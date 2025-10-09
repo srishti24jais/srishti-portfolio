@@ -1251,23 +1251,55 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       title: "Languages",
-      icon: <Code className="w-8 h-8 text-blue-600" />,
-      skills: ["Java", "C", "C++", "Python", "JavaScript", "TypeScript", "SQL"]
+      icon: <Code className="w-8 h-8 text-blue-500" />,
+      skills: [
+        { name: "Java", icon: "☕" },
+        { name: "C", icon: "⚡" },
+        { name: "C++", icon: "⚡" },
+        { name: "Python", icon: "🐍" },
+        { name: "JavaScript", icon: "🟨" },
+        { name: "TypeScript", icon: "🔷" },
+        { name: "SQL", icon: "🗄️" }
+      ]
     },
     {
       title: "Frameworks & Tools",
-      icon: <Database className="w-8 h-8 text-green-600" />,
-      skills: ["React", "Redux Toolkit", "Next.js", "Spring Boot", "Firebase", "Docker", "Git", "PostgreSQL", "MySQL"]
+      icon: <Database className="w-8 h-8 text-green-500" />,
+      skills: [
+        { name: "React", icon: "⚛️" },
+        { name: "Redux Toolkit", icon: "🔄" },
+        { name: "Next.js", icon: "▲" },
+        { name: "Spring Boot", icon: "🍃" },
+        { name: "Firebase", icon: "🔥" },
+        { name: "Docker", icon: "🐳" },
+        { name: "Git", icon: "📝" },
+        { name: "PostgreSQL", icon: "🐘" },
+        { name: "MySQL", icon: "🐬" }
+      ]
     },
     {
       title: "AI/ML & Cloud",
-      icon: <Cloud className="w-8 h-8 text-purple-600" />,
-      skills: ["Python ML libraries", "scikit-learn", "PyTorch", "TensorFlow", "LLM APIs", "LangChain", "RAG", "Azure", "AWS"]
+      icon: <Cloud className="w-8 h-8 text-purple-500" />,
+      skills: [
+        { name: "Python ML", icon: "🤖" },
+        { name: "scikit-learn", icon: "📊" },
+        { name: "PyTorch", icon: "🔥" },
+        { name: "TensorFlow", icon: "🧠" },
+        { name: "LLM APIs", icon: "💬" },
+        { name: "LangChain", icon: "🔗" },
+        { name: "RAG", icon: "📚" },
+        { name: "Azure", icon: "☁️" },
+        { name: "AWS", icon: "☁️" }
+      ]
     },
     {
       title: "Practices",
-      icon: <Award className="w-8 h-8 text-orange-600" />,
-      skills: ["Agile", "TDD", "CI/CD"]
+      icon: <Award className="w-8 h-8 text-orange-500" />,
+      skills: [
+        { name: "Agile", icon: "🏃" },
+        { name: "TDD", icon: "🧪" },
+        { name: "CI/CD", icon: "🔄" }
+      ]
     }
   ];
 
@@ -1300,14 +1332,18 @@ const SkillsSection = () => {
                 {category.icon}
                 <h3 className="text-xl font-bold text-white ml-3">{category.title}</h3>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div
+                  <motion.div
                     key={skillIndex}
-                    className="text-gray-300 hover:text-white transition-colors cursor-default"
+                    whileHover={{ scale: 1.05, x: 4 }}
+                    className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors cursor-default group"
                   >
-                    {skill}
-                  </div>
+                    <span className="text-lg group-hover:scale-110 transition-transform">
+                      {skill.icon}
+                    </span>
+                    <span className="font-medium">{skill.name}</span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -1324,17 +1360,20 @@ const CertificationsSection = () => {
     {
       title: "Microsoft Certified: Azure AI Fundamentals",
       year: "2025",
-      issuer: "Microsoft"
+      issuer: "Microsoft",
+      icon: "☁️"
     },
     {
       title: "Oracle Certified Java SE 11 Developer",
       year: "2025",
-      issuer: "Oracle"
+      issuer: "Oracle",
+      icon: "☕"
     },
     {
       title: "AWS Academy Machine Learning Foundations",
       year: "2023",
-      issuer: "Amazon Web Services"
+      issuer: "Amazon Web Services",
+      icon: "🤖"
     }
   ];
 
@@ -1365,7 +1404,7 @@ const CertificationsSection = () => {
               className="bg-slate-800/40 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 border border-slate-700/30 hover:border-slate-500/30"
             >
               <div className="text-center">
-                <Award className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+                <div className="text-4xl mb-4">{cert.icon}</div>
                 <h3 className="text-lg font-bold text-white mb-2">{cert.title}</h3>
                 <p className="text-cyan-400 font-semibold mb-1">{cert.issuer}</p>
                 <p className="text-gray-400">{cert.year}</p>
